@@ -10,6 +10,9 @@ textarea {
   outline: none;
   width: 4.5rem;
 }
+input {
+  padding-left: .2rem;
+}
 textarea {
   padding: .2rem;
 }
@@ -18,15 +21,27 @@ li {
 }
 input::-webkit-input-placeholder{
   color:#666!important;
+  font-size: .24rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 input::-moz-placeholder{   /* Mozilla Firefox 19+ */
   color:#666!important;
+  font-size: .24rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
   color:#666!important;
+  font-size: .24rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
   color:#666!important;
+  font-size: .24rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+i {
+  font-size: .34rem!important;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 /* 字体尺寸 start */
 .font16 {
@@ -119,11 +134,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .color999 {
   color: #999;
 }
-.colorcecece {
-  color: #cecece;
-}
-.colore7e7e7 {
-  color: #e7e7e7;
+.coloreeeeee {
+  color: #eeeeee;
 }
 .colorfff {
   color: #fff;
@@ -155,11 +167,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .bgff9500 {
   background-color: #ff9500;
 }
-.bgcecece {
-  background-color: #cecece;
-}
-.bge7e7e7 {
-  background-color: #e7e7e7;
+.bgeeeeee {
+  background-color: #eeeeee;
 }
 /* 背景颜色 end */
 
@@ -193,9 +202,13 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
   cursor: pointer
 }
 .container {
-  width: 7.02rem;
-  padding: 0 .24rem;
-  overflow: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow-y: auto;
 }
 /* 选择 搜索 start */
 .search_cont {
@@ -203,11 +216,12 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
   z-index: 9999;
 }
 .search_cont .category {
-  width: 100%;
+  width: calc(100vw - .48rem);
+  padding: 0 0.24rem;
   height: .90rem;
-  border-bottom: .01rem #e7e7e7 solid;
+  border-bottom: 1px #eeeeee solid;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 /* 选择 搜索 end */
@@ -215,15 +229,25 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .site {
   width: 100%;
   height: 100%;
-}
-.site .choose {
-  height: 100%;
-  padding: 0 .4rem 0 .3rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
+.site .choose {
+  width: 100%;
+  height: 60%;
+  padding: 0 .3rem 0 .2rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+}
+.site .choose div {
+  width: 90%;
+}
 .site .choose img {
+  position: absolute;
+  top: .02rem;
+  left: 1.8rem;
   width: .28rem;
   height: .28rem;
 }
@@ -232,7 +256,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
   transition: transform 0.3s;
 }
 .pwrap {
-  height: 6rem;
+  height: 4.22rem;
   overflow-y: auto;
   position: fixed;
   left: 0;
@@ -245,28 +269,62 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 .pwrap .address-header {
   position: fixed;
-  bottom: 6rem;
+  bottom: 4.22rem;
   width: 100%;
   background: #000;
-  color: #fff;
+  color: #1470cc;
 }
 .pwrap .address-header ul li {
   flex-grow: 1;
   text-align: center;
+  height: .5rem;
+  line-height: .5rem;
+  font-size: .26rem;
 }
 .pwrap .address-header .active {
-  color: #fff;
   border-bottom: #666 solid .08rem
 }
 .pwrap .address-container .active {
   color: #000;
 }
+.distpicker-address-wrapper .address-container ul li {
+  height: .5rem;
+  line-height: .5rem;
+  font-size: .26rem;
+}
 /* 省市县三级联动 end */
+/* 按钮样式 start */
+.nosend_btn {
+  width: 1.5rem;
+  padding: .15rem 0;
+  border-top: 1px #eeeeee solid;
+  border-radius: .06rem;
+  opacity: .5;
+}
+.send_border {
+  border: 1px #ff9500 solid;
+  opacity: 1;
+}
+/* 按钮样式 end */
+/* 底部单独按钮 start */
+.btn_footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px #eeeeee solid;
+}
+/* 底部单独按钮 end */
 /* 带返回键头部 start */
 .tit {
-  width: 100%;
+  width: calc(100vw - .48rem);
+  padding: 0 0.24rem;
   height: 1rem;
-  border-bottom: .01rem #cecece solid;
+  border-bottom: 1px #eeeeee solid;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -299,4 +357,38 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
   align-items: center;
 }
 /* 无数据图片 end */
+/* 底部公共导航背景图 start */
+.footer_shops > div:first-child{
+  background-image: url('../img/index.png');
+  background-size: cover;
+}
+.footer_shops.router-link-exact-active > div:first-child {
+  background: url('../img/indexactive.png');
+  background-size: cover;
+}
+.footer_supplier > div:first-child{
+  background-image: url('../img/supplier.png');
+  background-size: cover;
+}
+.footer_supplier.router-link-exact-active > div:first-child {
+  background: url('../img/supplieractive.png');
+  background-size: cover;
+}
+.footer_purchase > div:first-child{
+  background-image: url('../img/purchase.png');
+  background-size: cover;
+}
+.footer_purchase.router-link-exact-active > div:first-child {
+  background: url('../img/purchaseactive.png');
+  background-size: cover;
+}
+.footer_userinfo > div:first-child{
+  background-image: url('../img/userinfo.png');
+  background-size: cover;
+}
+.footer_userinfo.router-link-exact-active > div:first-child {
+  background: url('../img/userinfoactive.png');
+  background-size: cover;
+}
+/* 底部公共导航背景图 end */
 /* 公共样式 end */
